@@ -10,8 +10,6 @@ dentro do docker.
 
 <hr>
 
-<hr>
-
 <h1> Instruções </h1
 
 1. Instale e configuro o docker na sua máquina.
