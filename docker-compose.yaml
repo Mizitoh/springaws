@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  meuapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - '.:/home/java/app'
+    command: sh ./run.sh
+    depends_on:
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/appaws
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=mi123456
+    networks:
+      - redebd
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: appaws
+      MYSQL_ROOT_PASSWORD: mi123456
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - redebd
+
+volumes:
+  mysql_data:
+
+networks:
+  redebd:
+    driver: bridge
