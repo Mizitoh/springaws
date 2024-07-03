@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
-public class SpringawsApplication {
+public class Startup {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringawsApplication.class, args);
+		SpringApplication.run(Startup.class, args);
 	}
 
 }

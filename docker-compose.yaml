@@ -4,12 +4,11 @@ services:
   meuapp:
     build:
       context: .
-      dockerfile: Dockerfile
+    volumes:
+      - .:/home/java/app
+    command: sh ./run.sh
     ports:
       - "8080:8080"
-    volumes:
-      - '.:/home/java/app'
-    command: sh ./run.sh
     depends_on:
       - mysql
     environment:
